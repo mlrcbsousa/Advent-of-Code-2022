@@ -1,4 +1,4 @@
-file_data = File.read("day1.input").split("\n")
+file_data = File.read("input.txt").split("\n")
 # p file_data
 
 q = []

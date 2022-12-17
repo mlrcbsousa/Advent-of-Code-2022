@@ -1,5 +1,8 @@
 import * as fs from 'fs';
-let file = fs.readFileSync('day4.input','utf8');
+import * as path from 'path';
+
+const filePath = path.join(__dirname, 'input.txt');
+const file = fs.readFileSync(filePath, 'utf8');
 
 const lines = file.split('\n');
 let acc = 0;
