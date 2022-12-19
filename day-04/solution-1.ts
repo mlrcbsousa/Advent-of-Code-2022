@@ -1,10 +1,8 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import useFileParser from '../utils/useFileParser';
 
-const filePath = path.join(__dirname, 'input.txt');
-const file = fs.readFileSync(filePath, 'utf8');
+const { lines } = useFileParser(__dirname, 'input.txt');
+const c = console.log;
 
-const lines = file.split('\n');
 let acc = 0;
 
 lines.forEach(line => {
@@ -16,4 +14,4 @@ lines.forEach(line => {
   }
 })
 
-console.log('acc: ', acc);
+c('acc: ', acc);

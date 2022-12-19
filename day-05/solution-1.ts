@@ -1,10 +1,13 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import useFileParser from '../utils/useFileParser';
 
-const c = console.log
+const { file } = useFileParser(__dirname, 'input.txt');
+const c = console.log;
 
-const filePath = path.join(__dirname, 'input.txt');
-const file = fs.readFileSync(filePath, 'utf8');
+function move(n: number, from: number, to: number) {
+  for (let i = 0; i < n; i++) {
+    crates[to - 1].push(crates[from - 1].pop()!);
+  }
+}
 
 const [head, procedure] = file.split('\n\n');
 const rows = head.split('\n');
@@ -32,10 +35,7 @@ rows.forEach(row => {
 
 steps.forEach(function(step) {
   const [n, from, to] = step.match(/\d+/g)!.map(Number);
-
-  for (let i = 0; i < n; i++) {
-    crates[to - 1].push(crates[from - 1].pop()!);
-  }
+  move(n, from, to);
 });
 
 let result = crates.map((s) => s[s.length - 1]).join("");

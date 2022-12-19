@@ -1,12 +1,10 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import useFileParser from '../utils/useFileParser';
 
-const filePath = path.join(__dirname, 'input.txt');
-const file = fs.readFileSync(filePath, 'utf8');
+const { lines } = useFileParser(__dirname, 'input.txt');
+const c = console.log;
 
 const PRIORITIES = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const CHUNK_SIZE = 3;
-const lines = file.split('\n');
 let sum = 0;
 
 for (let i = 0; i < lines.length; i += CHUNK_SIZE) {
@@ -26,4 +24,4 @@ for (let i = 0; i < lines.length; i += CHUNK_SIZE) {
   sum += PRIORITIES.indexOf(match) + 1;
 }
 
-console.log('sum: ', sum);
+c('sum: ', sum);

@@ -1,11 +1,9 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import useFileParser from '../utils/useFileParser';
 
-const filePath = path.join(__dirname, 'input.txt');
-const file = fs.readFileSync(filePath, 'utf8');
+const { lines } = useFileParser(__dirname, 'input.txt');
+const c = console.log;
 
 const PRIORITIES = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const lines = file.split('\n');
 let sum = 0;
 
 lines.forEach(line => {
@@ -24,5 +22,5 @@ lines.forEach(line => {
   sum += PRIORITIES.indexOf(match) + 1;
 })
 
-console.log('sum: ', sum);
+c('sum: ', sum);
 
