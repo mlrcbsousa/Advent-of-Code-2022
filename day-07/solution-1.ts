@@ -26,6 +26,7 @@ function newDir(name: string, parent: Dir | null): Dir {
 
 const root = newDir('/', null);
 
+// Parse tree
 let parent = root;
 
 for (let i = 1; i < lines.length; i++) {
@@ -47,28 +48,22 @@ for (let i = 1; i < lines.length; i++) {
   }
 }
 
+// Calculate size
 const LIMIT = 100000;
-
 let total = 0;
 
 function dirSize(dir: Dir | null) {
-  if (!dir) {
-    return 0;
-  }
-
   let size = 0;
 
-  if (dir.files) {
+  if (dir?.files) {
     size += dir.files.reduce((acc, file) => acc + file.size, 0);
   }
 
-  if (dir.dirs) {
+  if (dir?.dirs) {
     size += dir.dirs.reduce((acc, dir) => acc + dirSize(dir), 0);
   }
 
-  if (size <= LIMIT) {
-    total += size;
-  }
+  if (size <= LIMIT) total += size;
 
   return size;
 }
