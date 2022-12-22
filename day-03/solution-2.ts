@@ -1,7 +1,5 @@
 import useFileParser from '../utils/useFileParser';
-
-const { lines } = useFileParser(__dirname, 'input.txt');
-const c = console.log;
+const { lines, c } = useFileParser(__dirname, 'input.txt');
 
 const PRIORITIES = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const CHUNK_SIZE = 3;

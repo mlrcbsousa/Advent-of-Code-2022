@@ -1,7 +1,5 @@
 import useFileParser from '../utils/useFileParser';
-
-const { file } = useFileParser(__dirname, 'input.txt');
-const c = console.log;
+const { file, c } = useFileParser(__dirname, 'input.txt');
 
 function move(n: number, from: number, to: number) {
   for (let i = 0; i < n; i++) {

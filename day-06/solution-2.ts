@@ -1,7 +1,5 @@
 import useFileParser from '../utils/useFileParser';
-
-const { file } = useFileParser(__dirname, 'input.txt');
-const c = console.log;
+const { file, c } = useFileParser(__dirname, 'input.txt');
 
 const MARKER_START = 14;
 let start = 0;

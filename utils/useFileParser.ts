@@ -9,5 +9,6 @@ export default function useFileParser(dirname: string, input: string) {
   return {
     file,
     lines,
+    c: console.log,
   }
 }
